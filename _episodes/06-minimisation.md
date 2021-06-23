@@ -14,7 +14,7 @@ keypoints:
 - "Combining different minimisation methods is a good practice and can help to avoid getting stuck into a local minima."
 --- 
 
-Before running any QM/MM simulation, we must **ALWAYS** equilibrate the system using only molecular mechanics (MM). This step will take approx. 20 min, so we are going to submit the calculation NOW on the short queue of ARCHER using the following script:
+Before running any simulation, we must **ALWAYS** equilibrate the system using only molecular mechanics (MM). This step will take approx. 20 min, so we are going to submit the calculation NOW on the short queue of ARCHER using the following script:
 
 ~~~
 qsub send_mm_equil.pbs
