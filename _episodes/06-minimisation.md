@@ -1,15 +1,15 @@
 ---
-title: Minimisation
+title: Energy minimisation
 teaching: 10
 exercises: 0
 questions:
 - "What should I do after generating my system's topology and coordinates?"
-- "How do I refine and remove bad contacts from the initial structure?" 
+- "How do I refine and remove bad contacts from the initial structure?"
 objectives:
 - "Run a `sander` command to minimise the initial structure."
 - "Explain briefly the options in the sander input file."
 keypoints:
-- "After adding water molecules and combining coordinates of different system elements we have to minimise the system to fix any bad contacts (LEap had warned us already of some bad contacts in the structure)." 
+- "After adding water molecules and combining coordinates of different system elements we have to minimise the system to fix any bad contacts (LEap had warned us already of some bad contacts in the structure)."
 - "Removing bad contacts at this point will prevent our system from failing catastrophically later down the line."
 - "Combining different minimisation methods is a good practice and can help to avoid getting stuck into a local minima."
 --- 
@@ -23,7 +23,7 @@ qsub send_mm_equil.pbs
 
 We are going to minimise and equilibrate the system using the `sander` tool from AmberTools suite. We have provided commented input files and ARCHER submission scripts to make these steps easier to follow. You can find more information on the sander input options in [Chapter 19](https://ambermd.org/doc12/Amber20.pdf) of the Amber20 manual.
 
-To run `sander`, one needs to specify at least the initial coordinates (`-c system.rst7`) and the topology files of your system (`-p system.parm7`) and an input file (`-i sander_min.in`) providing the details of the simuilation to perform. Also, we can specify the name of output files such the log file (`-o`) and final coordinates (`-r`). 
+To run `sander`, one needs to specify at least the initial coordinates (`-c system.rst7`) and the topology files of your system (`-p system.parm7`) and an input file (`-i sander_min.in`) providing the details of the simuilation to perform. Also, we can specify the name of output files such the log file (`-o`) and final coordinates (`-r`).
 
 ~~~
 #!/bin/bash --login
@@ -90,5 +90,4 @@ If we open the `min_classical.out` file, the last step of the minimisation shoul
 {: .output}
 
 We want the system to relax, so the `ENERGY` will decrease along the energy minimisation but we should also take the `GMAX` value into account. The `GMAX` is the slope on the Potential Energy Surface (PES) of the system of the current coordinates. `GMAX` should be close to 0. Other important information is the `NAME` and `NUMBER`, they point to the atom name and index, that is causing the major energy contribution.  
-
 
