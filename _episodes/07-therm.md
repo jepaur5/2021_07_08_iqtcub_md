@@ -1,5 +1,5 @@
 ---
-title: Thermalisation and Density equilibration
+title: Production runs
 teaching: 20
 exercises: 0
 questions:
