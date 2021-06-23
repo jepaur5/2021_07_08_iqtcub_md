@@ -1,5 +1,5 @@
 ---
-title: Production runs
+title: Thermalisation and Pressure Equilibration
 teaching: 20
 exercises: 0
 questions:
