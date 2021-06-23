@@ -1,5 +1,5 @@
 ---
-title: Further analysis
+title: Basic analysis of the trajectories
 teaching: 5
 exercises: 0
 questions:
