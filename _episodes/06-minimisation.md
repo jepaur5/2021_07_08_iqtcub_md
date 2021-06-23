@@ -12,16 +12,10 @@ keypoints:
 - "After adding water molecules and combining coordinates of different system elements we have to minimise the system to fix any bad contacts (LEap had warned us already of some bad contacts in the structure)."
 - "Removing bad contacts at this point will prevent our system from failing catastrophically later down the line."
 - "Combining different minimisation methods is a good practice and can help to avoid getting stuck into a local minima."
+
 --- 
 
-Before running any simulation, we must **ALWAYS** minimise and equilibrate the system using only molecular mechanics (MM). This step will take approx. 20 min, so we are going to submit the calculation NOW on the short queue of ARCHER using the following script:
-
-~~~
-qsub send_mm_equil.pbs
-~~~
-{: .language-bash}
-
-We are going to minimise and equilibrate the system using the `sander` tool from AmberTools suite. We have provided commented input files to make these steps easier to follow. You can find more information on the sander input options in [Chapter 19](https://ambermd.org/doc12/Amber20.pdf) of the Amber20 manual.
+Before running any simulation, we must **ALWAYS** minimise and equilibrate the system using only molecular mechanics (MM). We are going to minimise and equilibrate the system using the `sander` tool from AmberTools suite. We have provided commented input files to make these steps easier to follow. You can find more information on the sander input options in [Chapter 19](https://ambermd.org/doc12/Amber20.pdf) of the Amber20 manual.
 
 To run `sander`, one needs to specify at least the initial coordinates (`-c system.rst7`) and the topology files of your system (`-p system.parm7`) and an input file (`-i sander_min.in`) providing the details of the simuilation to perform. Also, we can specify the name of output files such the log file (`-o`) and final coordinates (`-r`).
 
