@@ -91,3 +91,4 @@ If we open the `min_classical.out` file, the last step of the minimisation shoul
 
 We want the system to relax, so the `ENERGY` will decrease along the energy minimisation but we should also take the `GMAX` value into account. The `GMAX` is the slope on the Potential Energy Surface (PES) of the system of the current coordinates. `GMAX` should be close to 0. Other important information is the `NAME` and `NUMBER`, they point to the atom name and index, that is causing the major energy contribution.  
 
+
