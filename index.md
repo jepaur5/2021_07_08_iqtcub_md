@@ -9,6 +9,7 @@ This course covers basic tools and technologies needed to succeed in setting up 
 At the end of this session you will be able to …
 *   Describe the main features of the AmberTools package
 *   Build topologies and coordinates ready to use in AMBER software
+*   Perform and analyse MD simulations
 
 The duration of the sessions will be between **1 and 2 hours**, depending on the level of interactivity.
 
