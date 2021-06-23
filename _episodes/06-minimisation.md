@@ -14,52 +14,12 @@ keypoints:
 - "Combining different minimisation methods is a good practice and can help to avoid getting stuck into a local minima."
 --- 
 
-Before running any QM/MM simulation, we must **ALWAYS** equilibrate the system using only molecular mechanics (MM). This step will take approx. 20 min, so we are going to submit the calculation NOW on the short queue of ARCHER using the following script:
-
-~~~
-qsub send_mm_equil.pbs
-~~~
-{: .language-bash}
-
-We are going to minimise and equilibrate the system using the `sander` tool from AmberTools suite. We have provided commented input files and ARCHER submission scripts to make these steps easier to follow. You can find more information on the sander input options in [Chapter 19](https://ambermd.org/doc12/Amber20.pdf) of the Amber20 manual.
+Before running any simulation, we must **ALWAYS** minimise and equilibrate the system. We are going to minimise and equilibrate the system using the `sander` tool from AmberTools suite. We have provided commented input files and ARCHER submission scripts to make these steps easier to follow. You can find more information on the sander input options in [Chapter 19](https://ambermd.org/doc12/Amber20.pdf) of the Amber20 manual.
 
 To run `sander`, one needs to specify at least the initial coordinates (`-c system.rst7`) and the topology files of your system (`-p system.parm7`) and an input file (`-i sander_min.in`) providing the details of the simuilation to perform. Also, we can specify the name of output files such the log file (`-o`) and final coordinates (`-r`). 
 
-~~~
-#!/bin/bash --login
-#PBS -N MM_equil
 
-# Select 1 nodes (maximum of 24 cores)
-#PBS -q short
-#PBS -l select=2
-#PBS -l walltime=00:20:00
-
-# Make sure you change this to your budget code
-#PBS -A y14-amber2020
-
-module swap PrgEnv-cray PrgEnv-gnu
-module load amber-tools/20
-
-# Move to directory that script was submitted from
-export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)
-cd $PBS_O_WORKDIR
-
-date
-echo "Minimisation"
-aprun -n 8 sander.MPI -O -i sander_min.in -o min_classical.out -p system.parm7 -c system.rst7 -r system.min.rst7
-date
-echo "Thermalisation"
-aprun -n 48 sander.MPI -O -i sander_heat.in -o heat_classical.out -p system.parm7 -c system.min.rst7 -r system.heat.rst7 -x system.heat.nc
-date
-echo "Pressure equilibration"
-aprun -n 48 sander.MPI -O -i sander_equil.in -o equil_classical.out -p system.parm7 -c system.heat.rst7 -r system.equil.rst7 -x system.equil.nc
-date
-~~~
-{: .source}
-
-***
-
-## Energy minimisation with `sander`
+## Energy minimisation 
 
 We have devised a minimisation protocol that will perform 4000 steps using two different methods: 2000 of [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) and 2000 of [conjugate gradient](https://en.wikipedia.org/wiki/Conjugate_gradient_method). The sander input file looks like this:
 
@@ -73,7 +33,14 @@ Minimisation of system
 ~~~
 {: .source}
 
-`sander` should have produced the following files: 
+To perform the minimisation, you should type the following command:
+~~~
+sander -O -i sander_min.in -o min_classical.out -p system.parm7 -c system.rst7 -r system.min.rst7
+~~~
+{: .language-bash}
+
+
+`sander` would produced the following files: 
 - `min_classical.out` where it has written down the energy of the system every 50 steps.
 - `system.min.rst7` with the minimised coordinates. 
 
