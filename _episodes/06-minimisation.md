@@ -1,5 +1,5 @@
 ---
-title: Energy minimisation
+title: Minimisation, Thermalisation and Pressure Equilibration
 teaching: 10
 exercises: 0
 questions:
