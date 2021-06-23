@@ -95,58 +95,98 @@ SUMMARY OF THIS PREDICTION
    ASP  48 A     2.69       3.80
    ASP  56 A     4.00       3.80
    ASP  92 A     3.11       3.80
-   ASP 153 A     3.91       3.80
+   ASP 153 A     3.88       3.80
    ASP 155 A     3.00       3.80
    ASP 176 A     3.90       3.80
    ASP 187 A     3.97       3.80
-   ASP 197 A     2.33       3.80
+   ASP 197 A     3.81       3.80
+   ASP 216 A     3.54       3.80
+   ASP 229 A     2.15       3.80
+   ASP 245 A     4.03       3.80
+   ASP 248 A     3.37       3.80
+   ASP 263 A     3.54       3.80
+   ASP 289 A     3.28       3.80
+   ASP 295 A     3.91       3.80
    GLU  14 A     4.00       4.50
    GLU  47 A     4.67       4.50
    GLU  55 A     4.73       4.50
    GLU 166 A     3.98       4.50
    GLU 178 A     4.88       4.50
+   GLU 240 A     4.60       4.50
+   GLU 270 A     4.67       4.50
+   GLU 288 A     4.42       4.50
+   GLU 290 A     5.79       4.50
    HIS  41 A     4.60       6.50
    HIS  64 A     6.26       6.50
    HIS  80 A     5.71       6.50
-   HIS 163 A     2.07       6.50
+   HIS 163 A     2.04       6.50
    HIS 164 A     1.44       6.50
-   HIS 172 A     5.57       6.50
+   HIS 172 A     5.51       6.50
+   HIS 246 A     5.37       6.50
    CYS  16 A    11.91       9.00
    CYS  22 A    10.26       9.00
    CYS  38 A    12.83       9.00
    CYS  44 A    11.04       9.00
    CYS  85 A    11.68       9.00
    CYS 117 A    11.97       9.00
-   CYS 128 A    11.33       9.00
+   CYS 128 A    12.86       9.00
    CYS 145 A    11.82       9.00
-   CYS 156 A     9.45       9.00
-   CYS 160 A    12.93       9.00
+   CYS 156 A     9.54       9.00
+   CYS 160 A    13.16       9.00
+   CYS 265 A    12.18       9.00
+   CYS 300 A    10.29       9.00
    TYR  37 A    11.88      10.00
    TYR  54 A    15.15      10.00
    TYR 101 A    12.87      10.00
    TYR 118 A    10.28      10.00
-   TYR 126 A    12.67      10.00
-   TYR 154 A    10.00      10.00
-   TYR 161 A    15.30      10.00
-   TYR 182 A    13.19      10.00
-   LYS  12 A    10.42      10.50
+   TYR 126 A    13.10      10.00
+   TYR 154 A    10.17      10.00
+   TYR 161 A    15.42      10.00
+   TYR 182 A    13.69      10.00
+   TYR 209 A    13.21      10.00
+   TYR 237 A    10.15      10.00
+   TYR 239 A    13.24      10.00
+   LYS   5 A    10.57      10.50
+   LYS  12 A    10.41      10.50
    LYS  61 A    10.72      10.50
    LYS  88 A    10.14      10.50
    LYS  90 A    10.56      10.50
    LYS  97 A    10.37      10.50
    LYS 100 A    11.37      10.50
-   LYS 102 A    10.77      10.50
-   LYS 137 A    10.45      10.50
+   LYS 102 A    10.76      10.50
+   LYS 137 A    10.33      10.50
+   LYS 236 A    10.69      10.50
+   LYS 269 A    11.49      10.50
+   ARG   4 A    12.41      12.50
    ARG  40 A    14.21      12.50
    ARG  60 A    12.46      12.50
    ARG  76 A    12.59      12.50
    ARG 105 A    13.13      12.50
-   ARG 131 A    13.28      12.50
+   ARG 131 A    15.69      12.50
    ARG 188 A    12.33      12.50
+   ARG 217 A    12.22      12.50
+   ARG 222 A    12.45      12.50
+   ARG 279 A    12.06      12.50
+   ARG 298 A    12.61      12.50
+   N+    1 A     7.91       8.00
 ~~~
 {: .output}
 
-We can see that all the residues are in their usual protonation state, therefore we do not need to modify residue names in the PDB. If you perform this step using the [H++ server](http://biophysics.cs.vt.edu), it will give you the same information and also a new PDB file with the necessary changes applied. 
+We can see that most of the residues are in their usual protonation state, therefore we do not need to modify residue names in the PDB. However we should play special attention to the histidines. As Mpro has a neutral Cys-His catalytic dyad embedded in a chymotrypsin-like fold, His41 is delta-protonated (HID). Also, given that His163 stablishes a hydrogen bond with the ligand, His163 is epsilon protonated. The other histidine residues must be checked individually but the most estable conformer when exposed to solvent is epsilon-protonated (HIE).
+
+This table summarises the state you should change the `HIS` name in the `protein.pdb` file using a text editor of your preference:
+
+| Residue | Histidine form | Reason |
+| ------ | ------ | ------ |
+| 41 | HID | Catalytic dyad |
+| 64 | HIE | Solvent exposed |
+| 80 | HIE | Solvent exposed |
+| 163 | HIE | H-bonding with the ligand |
+| 164 | HIE | H-bonding with Thr175 |
+| 172 | HIE | Solvent exposed |
+| 246 | HIE | Solvent exposed |
+
+If you perform the pKa calculation using the [H++ server](http://biophysics.cs.vt.edu), it will give you the same information and also a new PDB file with the necessary changes applied. 
 
 > ## TIP:
 >
