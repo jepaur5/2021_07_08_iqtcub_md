@@ -1,5 +1,5 @@
 ---
-title: Adding missing LJ parameters and recentering coordinates
+title: Analysis
 teaching: 10
 exercises: 0
 questions:
