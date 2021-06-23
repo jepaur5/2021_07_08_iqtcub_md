@@ -43,6 +43,12 @@ Heating ramp from 0K to 300K
 ~~~
 {: .source}
 
+To run the thermalisation step, you should type the following command: 
+~~~
+sander -O -i sander_heat.in -o heat_classical.out -p system.parm7 -c system.min.rst7 -r system.heat.rst7 -x system.heat.nc
+~~~
+{: .language-bash}
+
 `sander` produces several output files:
 - `heat_classical.out`: Log file with system values stored during the run. 
 - `system.heat.rst7`: coordinates and velocities to restart the simulation.
@@ -83,6 +89,12 @@ Density equilibration
 /
 ~~~
 {: .source}
+
+To run the equilibration step, you should run the following command: 
+~~~
+sander -O -i sander_equil.in -o equil_classical.out -p system.parm7 -c system.heat.rst7 -r system.equil.rst7 -x system.equil.nc
+~~~
+{: .language-bash}
 
 Again, `sander` produces several output files:
 - `equil_classical.out`: Log file with thermodynamic data of the system stored during the run.
