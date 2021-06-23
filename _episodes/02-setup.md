@@ -3,14 +3,11 @@ title: Log in and environment set up in ARCHER
 teaching: 5
 exercises: 0
 questions:
-- "How do I access ARCHER?"
-- "How do I set up the correct environment in ARCHER?"
+- "Which software will be used in this workshop?"
 objectives:
-- "Log in to ARCHER."
-- "Load AmberTools module in ARCHER."
+- "Download necesary data for the workshop"
 keypoints:
-- "SSH to ARCHER"
-- "Load Ambertools with `module load`."
+- "We need several pieces of software to model biological systems"
 ---
 
 
