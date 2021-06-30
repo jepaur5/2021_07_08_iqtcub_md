@@ -3,11 +3,15 @@ title: Basic analysis of the trajectories
 teaching: 5
 exercises: 0
 questions:
-- "What is CP2K?"
+- "Has my simulation converged?"
+- "Is my protein stable?"
 objectives:
-- "Choose the QM region effectively"
+- "Visualisation of MD trajectories."
+- "Basic analysis of MD trajectories."
 keypoints:
-- "Choosing the QM region is in not trivial."
+- "It is important to recenter the protein to avoid analysis artefacts."
+- "It is ALWAYS good practice to visualise your simulations with VMD or Pymol."
+- "RMSD of the backbone a protein gives us a measure of its stability."
 ---
 
 
