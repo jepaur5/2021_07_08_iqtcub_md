@@ -54,11 +54,22 @@ The resulting files are the same than before, `sander` produces several output f
 
 #### Replicates
 
+As in any experiment, a number of replicates should be performed (The minimum amount of replicates is 3). You should equilibrate each replica separately and initiate it with a different seed number. 
+
+~~~
+ig=-1,                    ! seed for the pseudo-random number generator will be based 
+~~~
+{: .source}
+
+This line in the `sander_heat.in` file sets a random seed number to ensure the different assignement of velocities after the minimisation step. 
+
 #### Length of the simulation
+
+How long should a simulation be depends on the process you want to study. It is worth to note that so far the high end of the length of the typical MD simulations is around the low µs scale. However, biological processes happen on a wider range of time scales beyond the timescale available to MD simulation. 
 
 #### NVT or NPT ensembles
 
-
+It is OK to use any of them except when your particular system requires a determined NPT ensembles such as membrane protein simulations.  
 
 
 
