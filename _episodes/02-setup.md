@@ -27,7 +27,7 @@ In this session we are going to use several software packages:
 You'll need to download some files to follow this workshop:
 ~~~
 git config --global http.sslverify false
-git clone https://git.ecdf.ed.ac.uk/sllabres/files_ambertools4cp2k.git
+git clone https://github.com/salomellabres/files_MDbasictutorial.git
 ~~~
 {: .language-bash}
 
