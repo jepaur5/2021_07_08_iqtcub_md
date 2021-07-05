@@ -29,7 +29,7 @@ apt-get install babel
 ~~~
 {: .language-bash}
 
-If you have anyy trouble, let us know. 
+If you have any trouble, let us know. 
 
 ***
 
