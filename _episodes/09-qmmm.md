@@ -114,8 +114,8 @@ These two files if plotted show the following behavior:
 
 | RMSD of the protein | Ligand |
 | ------------- | ------------- |
-| ![RMSD of the protein]({{ page.root }}/fig/rmsd.protein.png)  | ![RMSD of the protein]({{ page.root }}/fig/rmsd.ligand.png)  |
+| ![RMSD of the protein]({{ page.root }}/fig/RMSD.protein.png)  | ![RMSD of the protein]({{ page.root }}/fig/RMSD.ligand.png)  |
 
 #### RMSF
 
-![RMSF of the protein]({{ page.root }}/fig/rmsf.protein.png)  
+![RMSF of the protein]({{ page.root }}/fig/RMSF.png)  
