@@ -1,11 +1,11 @@
 ---
-title: Log in and environment set up in ARCHER 
+title: Environment set up and downloading files 
 teaching: 5
 exercises: 0
 questions:
 - "Which software will be used in this workshop?"
 objectives:
-- "Download necesary data for the workshop"
+- "Download necessary data for the workshop"
 keypoints:
 - "We need several pieces of software to model biological systems"
 ---
@@ -19,18 +19,23 @@ In this session we are going to use several software packages:
 - [Pymol](https://sourceforge.net/projects/pymol/) or [VMD](https://www.ks.uiuc.edu/Research/vmd/) or another molecular visualisation tool of your preference.
 - [Marvin Sketch](https://chemaxon.com/products/marvin).
 
+***
+
+You should check that both `pymol`and `babel`are installed in your workstation. Try to type `pymol` anb `babel` respectively. If they are not installed you should download them using the following command:
+
+~~~
+apt-get install pymol
+apt-get install babel
+~~~
+{: .language-bash}
+
+If you have anyy trouble, let us know. 
 
 ***
 
 ## Downloading data
 
-You'll need to download some files to follow this workshop:
-~~~
-git config --global http.sslverify false
-git clone https://github.com/salomellabres/files_MDbasictutorial.git
-~~~
-{: .language-bash}
-
+You'll need to download some files to follow this workshop, since there is no `git` installed. You should visit [this page](https://github.com/salomellabres/files_MDbasictutorial) and download the files.
 
 > ## About the data
 >
@@ -41,9 +46,9 @@ git clone https://github.com/salomellabres/files_MDbasictutorial.git
 >
 {: .prereq}
 
-Once you have downloaded the files you can go into the `files_ambertools4cp2k` folder and proceed to the next section:
+Once you have downloaded the files you can go into the `files_MDbasictutorial` folder and proceed to the next section:
 
 ~~~
-cd files_ambertools4cp2k
+cd files_MDbasictutorial
 ~~~
 {: .language-bash}
