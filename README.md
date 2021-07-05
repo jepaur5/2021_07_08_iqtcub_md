@@ -1,4 +1,3 @@
-# QM/MM calculations using CP2K + GROMACS
-## 1. Ambertools for CP2K
+# Basic MD tutorial using AMBER
 
 web: https://salomellabres.github.io/2021_07_08_iqtcub_md
